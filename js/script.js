@@ -19,6 +19,7 @@ createApp({
         generaEmail(){
             // Azzera l'array di email quando si avvia la generazione
             this.emails= [];
+            //azzera il contatore per gestire click successivi
             this.completedReq = 0;
             // Loop per effettuare le richieste di generazione email
             for (let i = 0; i < this.items; i++){
