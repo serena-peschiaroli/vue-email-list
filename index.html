@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- vue script -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
+
 </head>
 <body>
     <div id="app">
         <h2>Genera e-mail</h2>
+        <!-- Bottone che avvia il metodo generaEmail -->
         <button @click="generaEmail">Genera</button>
-        <ul>
-            <li>
-                
+        <!-- Lista che viene visualizzata solo quando ci sono email -->
+        <ul v-if="emails.length > 0">
+            <!-- Iterazione sulla lista di email e visualizzazione di ciascuna -->
+            <li v-for="(email, index) in emails" :key="index">
+                {{ email }}
             </li>
         </ul>
     </div>
