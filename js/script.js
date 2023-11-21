@@ -18,7 +18,8 @@ createApp({
         // Metodo per generare gli indirizzi email
         generaEmail(){
             // Azzera l'array di email quando si avvia la generazione
-            this.emails= []
+            this.emails= [];
+            this.completedReq = 0;
             // Loop per effettuare le richieste di generazione email
             for (let i = 0; i < this.items; i++){
                 // Verifica se il counter è minore delle email da generare
