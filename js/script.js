@@ -11,12 +11,14 @@ createApp({
             items: 10,
             // Contatore per tracciare le richieste completate
             completedReq: 0,
+            isLoading: false
 
         };
     },
     methods:{
         // Metodo per generare gli indirizzi email
         generaEmail(){
+            
             // Azzera l'array di email quando si avvia la generazione
             this.emails= [];
             //azzera il contatore per gestire click successivi
@@ -28,6 +30,7 @@ createApp({
                     // Effettua una richiesta al servizio API per ottenere un indirizzo email casuale
                     axios.get(`https://flynn.boolean.careers/exercises/api/random/mail`)
                     .then(response => {
+                    this.isLoading = true;
                     // Aggiunge l'indirizzo email all'array
                     this.emails.push(response.data.response);
                     // Incrementa il contatore 
@@ -36,6 +39,7 @@ createApp({
                     // Se il contatore è === ad items, stampa l'array di email
                     if(this.completedReq === this.items) {
                         console.log(this.emails);
+                        this.isLoading = false;
                     }
                     });
                 }

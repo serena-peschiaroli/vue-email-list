@@ -14,12 +14,13 @@
         <!-- Bottone che avvia il metodo generaEmail -->
         <button @click="generaEmail">Genera</button>
         <!-- Lista che viene visualizzata solo quando ci sono email -->
-        <ol v-if="emails.length > 0">
+        <ol v-if="emails.length === 10">
             <!-- Iterazione sulla lista di email e visualizzazione di ciascuna -->
             <li v-for="(email, index) in emails" :key="index">
                 {{ email }}
             </li>
         </ol>
+        <p  v-if="isLoading"> Loading... </p>
     </div>
     
         <!-- axios script -->
